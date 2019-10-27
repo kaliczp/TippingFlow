@@ -1,7 +1,7 @@
 length = 110;
-width = 80;
-height = 60;
-wall = 0.5;
+width = 55;
+height = 70;
+wall = 0.87;
 
 module funnel(l, w, h, out = false) {
     ls = l/5; // length shrink
@@ -26,8 +26,8 @@ module funnel(l, w, h, out = false) {
     if(out){
         union(){
             polyhedron( CubePoints, CubeFaces );
-            translate([l/2,w/2,h+1.5])
-            cube([3/5*l, w/11, 3],true);
+            translate([l/2,w/2,h-5])
+            cube([3/5*l+6, 2*w/11 + 2*wall, 10],true);
         }
     } else {
         polyhedron( CubePoints, CubeFaces );
@@ -37,7 +37,7 @@ module funnel(l, w, h, out = false) {
 module pilar(){
     difference(){
         difference(){
-            cube([2,width+5,height+80],false);
+            cube([2*wall + 1, width + 4 + 2*wall, height + 80], false);
             translate([wall, wall, 2])cube([1,width+4,height+80],false);
         }
        translate([-wall, width/2 + 1.75, height + 80 - 29.5]) cube([10, 1.5, 30], false);
@@ -67,8 +67,8 @@ union(){
             translate([2.5,2.5,-.5])
             cube([length-.5, width-.5, 2.6], false);
             // Lower outlet
-            translate([1*length/5 + 2*wall +2, width/2, height/2 + wall])
-            cube([3/5*length- 2*wall, width/15, 100]);
+            translate([1*length/5 + 2*wall, width/2 , height/2 + wall])
+            cube([3/5*length + wall, width/11 + wall, 100],false);
         }
     }
 // Pilar with slot for reed relay
@@ -82,5 +82,5 @@ union(){
     }
     translate([length + 3,0,0]) pilar();
     sidewall();
-    translate([0,width + 4.5,0]) sidewall();
+    translate([0,width + 4 + wall, 0]) sidewall();
 }
