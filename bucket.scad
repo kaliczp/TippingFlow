@@ -22,11 +22,14 @@ module bucket(length, width, height,thick)
 
 			// sensor arm need some slot for magnet
             difference() {
-                color("green") translate([width/2-thick/2, 0, height]) rotate(a=90,v=[0,1,0]) cube([30,7,thick],center = true);
-                translate([width/2-thick/2, 0, 6*height/5]) rotate(a=90,v=[0,1,0]) cube([6,3,2*thick],center = true);
+                color("green") translate([width/2-thick/2, 0, 25])
+                    cylinder(60, r=2, center = true);
+                translate([width/2-thick/2, 0, height+3])
+                    rotate(a=90,v=[0,1,0]) cube([5.5,2,5],center = true);
                 }
             // weight arm
-            color("green") translate([-width/2+thick/2, 0, height]) rotate(a=90,v=[0,1,0]) cube([30,7,thick],center = true);
+            color("green") translate([-width/2+thick/2, 0, 25])
+                    cylinder(60, r= 2,center = true);
 			//color("blue") translate([0, 0, 0]) rotate(a=90, v=[0,1 ,0 ]) cylinder(h=width, r=3, center=true);
 
 		}
