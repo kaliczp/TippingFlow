@@ -34,7 +34,8 @@ module bucket(length, width, height,thick)
 
 		}
 	// remove bottom parts
-	color("red") translate([0, 0, -thick-5]) cube([width+2,length+2,10], center = true);
+    color("red") translate([0, 0, -thick-5])
+        cube([width+10,length+10,10], center = true);
 	// whole for shaft
 	color("red") translate([0, 0, 1.02]) rotate(a=90, v=[0,1 ,0 ]) cylinder(h=width+2, r=1.05, center=true);
 	}
