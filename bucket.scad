@@ -37,4 +37,4 @@ module bucket(length, width, height,thick)
 	}
 }
 
-bucket(100,100,50,.5);
+bucket(100,100,40,.5);
